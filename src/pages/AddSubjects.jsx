@@ -17,7 +17,7 @@ const AddSubjects = () => {
   useEffect(() => {
     if (selectedClass) {
       // Fetch existing subjects for the selected class
-      fetch(`http://localhost:5000/api/get-subjects?className=${selectedClass}`)
+      fetch(`https://ghstatarmansehrabackend.vercel.app/api/get-subjects?className=${selectedClass}`)
         .then(response => response.json())
         .then(data => {
           setSubjects(data.subjects || []);
@@ -40,7 +40,7 @@ const AddSubjects = () => {
     const selectedClass = document.getElementById('selectField').value;
 
 
-    axios.delete('http://localhost:5000/api/delete-subject', {
+    axios.delete('https://ghstatarmansehrabackend.vercel.app/api/delete-subject', {
       headers: {
         'Content-Type': 'application/json',
       },
@@ -87,7 +87,7 @@ const AddSubjects = () => {
     console.log('Payload to be sent:', payload);
 
     // Make the API request to add the subjects
-    fetch("http://localhost:5000/api/add-subjects", {
+    fetch("https://ghstatarmansehrabackend.vercel.app/api/add-subjects", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -100,7 +100,7 @@ const AddSubjects = () => {
         toast.success('Subject added successfully')
         // Refresh the subjects list
         if (selectedClass) {
-          fetch(`http://localhost:5000/api/get-subjects?className=${selectedClass}`)
+          fetch(`https://ghstatarmansehrabackend.vercel.app/api/get-subjects?className=${selectedClass}`)
             .then(res => res.json())
             .then(updatedData => setSubjects(updatedData.subjects || []));
         }
