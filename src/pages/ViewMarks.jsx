@@ -25,7 +25,7 @@ const ViewMarks = () => {
 
     const fetchClassData = async () => {
         try {
-            const response = await axios.get(`http://localhost:5000/api/class-data?className=${selectedClass}`);
+            const response = await axios.get(`https://ghstatarmansehrabackend.vercel.app/api/class-data?className=${selectedClass}`);
             setStudentsData(response.data);
             console.log(studentsData);
         } catch (error) {
@@ -37,7 +37,7 @@ const ViewMarks = () => {
     const sendStudentDataForPDF = async (student) => {
         try {
             console.log(student);
-            const response = await axios.post('http://localhost:5000/generate-pdf', {student}, {
+            const response = await axios.post('https://ghstatarmansehrabackend.vercel.app/generate-pdf', {student}, {
                 responseType: 'blob',
             });
             // Download the PDF

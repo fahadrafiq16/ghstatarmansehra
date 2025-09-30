@@ -15,7 +15,7 @@ const AddStudents = () => {
 
     useEffect(() => {
         if (selectedClass) {
-            fetch(`http://localhost:5000/api/get-class-students?className=${selectedClass}`)
+            fetch(`https://ghstatarmansehrabackend.vercel.app/api/get-class-students?className=${selectedClass}`)
                 .then(response => response.json())
                 .then(data => {
                     console.log('data', data.students);
@@ -36,7 +36,7 @@ const AddStudents = () => {
 
         // Send DELETE request to the backend to remove student
         const selectedClass = document.getElementById('selectField').value;
-        fetch('http://localhost:5000/api/delete-student', {
+        fetch('https://ghstatarmansehrabackend.vercel.app/api/delete-student', {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',
@@ -69,7 +69,7 @@ const AddStudents = () => {
         const selectedClass = data.classname;
 
         // Fetch existing students from backend
-        fetch(`http://localhost:5000/api/get-class-students?className=${selectedClass}`)
+        fetch(`https://ghstatarmansehrabackend.vercel.app/api/get-class-students?className=${selectedClass}`)
             .then(response => response.json())
             .then(existingData => {
                 // Create a map of existing students by their IDs
@@ -106,7 +106,7 @@ const AddStudents = () => {
                 };
 
                 // Send to backend
-                fetch('http://localhost:5000/api/update-class', {
+                fetch('https://ghstatarmansehrabackend.vercel.app/api/update-class', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
