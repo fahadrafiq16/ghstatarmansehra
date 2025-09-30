@@ -17,7 +17,7 @@ const AddMarks = () => {
   // Fetch subjects when a class is selected
   useEffect(() => {
     if (selectedClass) {
-      fetch(`http://localhost:5000/api/get-subjects?className=${selectedClass}`)
+      fetch(`https://ghstatarmansehrabackend.vercel.app/api/get-subjects?className=${selectedClass}`)
         .then((response) => response.json())
         .then((data) => setSubjects(data.subjects || []))
         .catch((error) => console.error("Error fetching subjects:", error));
@@ -27,7 +27,7 @@ const AddMarks = () => {
   // Fetch marks when a subject is selected
   useEffect(() => {
     if (selectedClass && selectedSubject) {
-      fetch(`http://localhost:5000/api/get-marks?className=${selectedClass}&subjectName=${selectedSubject}`)
+      fetch(`https://ghstatarmansehrabackend.vercel.app/api/get-marks?className=${selectedClass}&subjectName=${selectedSubject}`)
         .then((response) => response.json())
         .then((data) => setMarks(data.marks || []))
         .catch((error) => console.error("Error fetching marks:", error));
@@ -52,7 +52,7 @@ const AddMarks = () => {
       })),
     };
 
-    fetch("http://localhost:5000/api/update-marks", {
+    fetch("https://ghstatarmansehrabackend.vercel.app/api/update-marks", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload),
